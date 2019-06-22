@@ -70,11 +70,11 @@ WSGI_APPLICATION = 'dstagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['dstagram'],
-        'USER': os.environ['postgres'],
-        'PASSWORD': os.environ['*s5827253'],
-        'HOST': os.environ['127.0.0.1'],
-        'PORT': os.environ['5432'],
+        'NAME': 'dstagram',
+        'USER': 'postgres',
+        'PASSWORD': '*s5827253',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 # DATABASES = {
