@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'dstagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dstagram',
+        'NAME': 'aa1bp1g9ol6rnh2',
         'USER': 'postgres',
         'PASSWORD': '*s5827253',
         'HOST': '127.0.0.1',
