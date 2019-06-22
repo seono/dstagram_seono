@@ -4,13 +4,13 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Photo
 
-#from django.contrib.auth.mixins import       #권한 제한하는 건데 @login_required라는 decorator는 함수형 (def)뷰에서 사용 지금은 클래스 형 뷰->Mixin사용
+from django.contrib.auth.mixins import LoginRequiredMixin       #권한 제한하는 건데 @login_required라는 decorator는 함수형 (def)뷰에서 사용 지금은 클래스 형 뷰->Mixin사용
 
-class PhotoListView(ListView):
+class PhotoListView(LoginRequiredMixin,ListView):
      model = Photo
      template_name="photo/list.html"
     
-class PhotoUploadView(CreateView):
+class PhotoUploadView(LoginRequiredMixin,CreateView):
     model = Photo
     fields = ['photo', 'text']
     template_name = 'photo/upload.html'                         #사용할 템플릿
@@ -23,15 +23,15 @@ class PhotoUploadView(CreateView):
         else:
             return self.render_to_response({'form':form})       #이상이 있을시 작성된 내용을 그대로 작성 페이지에 표시
 
-class PhotoDeleteView(DeleteView):
+class PhotoDeleteView(LoginRequiredMixin,DeleteView):
     model = Photo
     success_url = '/'
     template_name = 'photo/delete.html'
 
-class PhotoUpdateView(UpdateView):
+class PhotoUpdateView(LoginRequiredMixin,UpdateView):
     model = Photo
     fields = ['photo','text']
     template_name = 'photo/update.html'
 
-class PhotoDetailView(DetailView):
+class PhotoDetailView(LoginRequiredMixin,DetailView):
     model = Photo
