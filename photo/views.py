@@ -35,3 +35,4 @@ class PhotoUpdateView(LoginRequiredMixin,UpdateView):
 
 class PhotoDetailView(LoginRequiredMixin,DetailView):
     model = Photo
+    template_name = 'photo/detail.html'
